@@ -1,0 +1,113 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMllV4kH64Grjcnus72oLSG",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/dewiekayuslita-lgtm/Projek_UAS_Matematika_Komputasi/blob/main/UAS_MATEMATIKA_KOMPUTASI.ipyb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0mxHkjkljazJ",
+        "outputId": "69793cd4-cd40-4e5f-c3d5-23604005f423"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "2026-06-23 08:17:25.153 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.761 \n",
+            "  \u001b[33m\u001b[1mWarning:\u001b[0m to view this Streamlit app on a browser, run it with the following\n",
+            "  command:\n",
+            "\n",
+            "    streamlit run /usr/local/lib/python3.12/dist-packages/colab_kernel_launcher.py [ARGUMENTS]\n",
+            "2026-06-23 08:17:25.765 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.768 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.770 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.772 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.786 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.789 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.797 Session state does not function when running a script without `streamlit run`\n",
+            "2026-06-23 08:17:25.803 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.804 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.807 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.811 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.815 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.816 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.817 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.820 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.824 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.825 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.830 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.830 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.834 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.836 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.838 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2026-06-23 08:17:25.839 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n"
+          ]
+        }
+      ],
+      "source": [
+        "import streamlit as st\n",
+        "\n",
+        "def hitung_bmi(berat, tinggi):\n",
+        "    # Rumus BMI: berat (kg) / (tinggi (m) * tinggi (m))\n",
+        "    bmi = berat / (tinggi ** 2)\n",
+        "    return bmi\n",
+        "\n",
+        "def kategori_bmi(bmi):\n",
+        "    if bmi < 18.5:\n",
+        "        return \"Kekurangan berat badan\"\n",
+        "    elif 18.5 <= bmi < 24.9:\n",
+        "        return \"Berat badan normal\"\n",
+        "    elif 25 <= bmi < 29.9:\n",
+        "        return \"Kelebihan berat badan\"\n",
+        "    else:\n",
+        "        return \"Obesitas\"\n",
+        "\n",
+        "st.title(\"Kalkulator BMI Sederhana\")\n",
+        "\n",
+        "# Input pengguna\n",
+        "berat = st.number_input(\"Masukkan berat badan (kg):\", min_value=1.0, step=0.1)\n",
+        "tinggi_cm = st.number_input(\"Masukkan tinggi badan (cm):\", min_value=50.0, step=1.0)\n",
+        "\n",
+        "if st.button(\"Hitung BMI\"):\n",
+        "    if tinggi_cm > 0:\n",
+        "        tinggi_m = tinggi_cm / 100\n",
+        "        bmi = hitung_bmi(berat, tinggi_m)\n",
+        "        kategori = kategori_bmi(bmi)\n",
+        "\n",
+        "        st.write(f\"### Hasil BMI Anda: {bmi:.2f}\")\n",
+        "        st.write(f\"### Kategori: {kategori}\")\n",
+        "    else:\n",
+        "        st.error(\"Tinggi badan harus lebih dari 0!\")"
+      ]
+    }
+  ]
+}
